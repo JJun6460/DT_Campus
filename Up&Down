@@ -11,18 +11,20 @@ while s != Ans:
     s = int(input('숫자를 입력하세요 : '))
     count += 1
 
-    if count < 5:
+    if s > Ans:
+            if count < 5:
+                print('DOWN!')
+            else:
+                print(f'실패했습니다. 정답은 {Ans}였습니다.')
+                break
 
-        if s > Ans:
-            print('DOWN!')
-
-        elif s < Ans:
-            print('UP!')
-
-        else:
-            print(f'"정답입니다!"\n"{count}번만에 맞췄습니다."')
-            break
+    elif s < Ans:
+            if count < 5:
+                print('UP!')
+            else:
+                print(f'실패했습니다. 정답은 {Ans}였습니다.')
+                break
 
     else:
-        print(f'실패했습니다. 정답은 {Ans}였습니다.')
+        print(f'"정답입니다!"\n"{count}번만에 맞췄습니다."')
         break
