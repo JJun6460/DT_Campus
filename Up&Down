@@ -1,7 +1,7 @@
 import random
 
 Ans = random.randint(1, 100)
-print(f'정답 : {Ans}')
+# print(f'정답 : {Ans}')
 
 s = 0
 count = 0
