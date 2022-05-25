@@ -1,0 +1,65 @@
+import random
+import pickle
+
+try:
+    f = open('rank.txt', 'rb')
+    rank = pickle.load(f)
+    f.close
+
+except:
+    rank = []
+
+rank.sort(reverse = True)
+
+start = 0
+print('- Rank -')
+for i in rank:
+    start += 1
+    print(f'{start}등 : {i}점')
+
+count = 0
+My = 0
+score = 0
+
+while count < 5:
+    
+    com = random.choice(['가위', '바위', '보'])
+    print(com)
+    My = input('가위 / 바위 / 보 : ')
+
+    if My == '가위' or My == '바위' or My == '보':
+
+        count += 1
+
+        if My == com:
+            print('비겼습니다.')
+
+        else:
+            if com == '가위' and My == '바위':
+                print('이겼습니다.')
+                score += 3
+            elif com == '가위' and My == '보':
+                print('졌습니다.')
+                score -= 1
+            elif com == '바위' and My == '보':
+                print('이겼습니다.')
+                score += 3
+            elif com == '바위' and My == '가위':
+                print('졌습니다.')
+                score -= 1
+            elif com == '보' and My == '가위':
+                print('이겼습니다.')
+                score += 3
+            else:
+                print('졌습니다.')
+                score -= 1
+    
+    else:
+        print('잘못된 입력입니다. 다시 입력하세요.')
+
+print(f'{score}점')
+rank.append(score)
+
+f = open('rank.txt', 'wb')
+pickle.dump(rank, f)
+f.close()
