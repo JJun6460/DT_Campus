@@ -1,0 +1,23 @@
+n_1 = int(input('첫번째 주사워 : '))
+n_2 = int(input('두번째 주사워 : '))
+n_3 = int(input('세번째 주사워 : '))
+
+x = sorted([n_1, n_2, n_3])
+x
+if n_1 == n_2:
+    if n_1 == n_3:
+        print(10000 + n_1 * 1000)
+    else:
+        print(1000 + n_1 * 100)
+elif n_2 == n_3:
+    if n_2 == n_1:
+        print(10000 + n_2 * 1000)
+    else:
+        print(1000 + n_2 * 100)
+elif n_3 == n_1:
+    if n_3 == n_2:
+        print(10000 + n_3 * 1000)
+    else:
+        print(1000 + n_3 * 100)
+else:
+    print(x[2]*100)
